@@ -1,5 +1,5 @@
-export default function NewOrderPage() {
+export default function AddLocation() {
   return (
-    <h1>NewOrderPage</h1>
+    <h1>Add Location</h1>
   );
 }
