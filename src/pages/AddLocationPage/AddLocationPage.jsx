@@ -5,12 +5,12 @@ export default function AddLocationPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState(null);
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+  function handleChange(evt) {
+    setSearchTerm(evt.target.value);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  async function handleSubmit(evt) {
+    evt.preventDefault();
     // Call a function to search for the location based on the searchTerm
     // For now, let's just log the searchTerm
     console.log('Searching for:', searchTerm);
