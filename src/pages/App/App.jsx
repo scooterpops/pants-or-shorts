@@ -4,6 +4,8 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import LocationsPage from '../LocationsPage/LocationsPage';
+import AddLocationPage from '../AddLocationPage/AddLocationPage'; 
 import NavBar from '../../components/NavBar/NavBar';
 // import Locations from '../../components/Locations/Locations';
 // import AddLocationPage from '../../components/AddLocationPage/AddLocationPage';
@@ -20,8 +22,8 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/orders/new" element={<NewOrderPage />} />
-              <Route path="/orders" element={<OrderHistoryPage />} />
+              <Route path="/locations" element={<LocationsPage />} />
+              <Route path="/locations/add" element={<AddLocationPage />} />
             </Routes>
           </>
           :
