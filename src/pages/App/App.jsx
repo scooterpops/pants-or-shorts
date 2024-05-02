@@ -5,7 +5,10 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
+// import Locations from '../../components/Locations/Locations';
+// import AddLocationPage from '../../components/AddLocationPage/AddLocationPage';
 import { getUser } from '../../utilities/users-service';
+import axios from 'axios'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
