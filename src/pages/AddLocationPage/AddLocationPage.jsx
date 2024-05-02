@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import * as userService from '../../utilities/users-service';
+import axios from 'axios'; // Import Axios
 
 export default function AddLocationPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResult, setSearchResult] = useState(null);
+  const [weatherData, getWeatherData] = useState(null);
 
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
@@ -11,12 +12,15 @@ export default function AddLocationPage() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    // Call a function to search for the location based on the searchTerm
-    // For now, let's just log the searchTerm
-    console.log('Searching for:', searchTerm);
+    try {
+      const response = await axios.get(`/api/weather?searchTerm=${searchTerm}`);
+      getWeatherData(response.data);
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
   };
 
-  const handleClick = async () => {
+  async function handleClick() {
     const expDate = await userService.checkToken();
     console.log(expDate);
   };
@@ -33,7 +37,14 @@ export default function AddLocationPage() {
         />
         <button type="submit">Search</button>
       </form>
-      <button onClick={handleClick}>Add Location</button>
+      {weatherData && (
+        <div>
+          <h2>Weather Data</h2>
+          <p>Temperature: {weatherData.current.temp_f}°F</p>
+          <p>Humidity: {weatherData.current.humidity}</p>
+        </div>
+      )}
+      <p>Search Term: {searchTerm}</p>
     </>
   );
 }
