@@ -44,6 +44,7 @@ export default function AddLocationPage() {
           <p>Humidity: {weatherData.current.humidity}</p>
           <p>Precipitation: {weatherData.current.precip_in} in</p>
           <p>UV Index: {weatherData.current.uv}</p>
+          <p>Cloud Cover: {weatherData.current.cloud}%</p>
         </div>
       )}
       {/* <p>Search Term: {searchTerm}</p> */}
