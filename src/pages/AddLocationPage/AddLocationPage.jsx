@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as userService from '../../utilities/users-service';
+import * as locationApi from '../../utilities/locations-api';
 import axios from 'axios';
 
 export default function AddLocationPage() {
@@ -24,7 +25,7 @@ export default function AddLocationPage() {
 
   async function handleSaveLocation() {
     try {
-      await userService.saveLocation(searchTerm);
+      await locationApi.create(searchTerm);
       console.log('Location saved successfully'); 
     } catch (error) {
       console.error('Error saving location:', error)
