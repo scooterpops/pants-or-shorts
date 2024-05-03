@@ -5,6 +5,10 @@
 
 import * as usersAPI from './users-api';
 
+export async function saveLocation() {
+  
+}
+
 export const checkToken = async () => {
     alert('clicked')
     return usersAPI.checkToken()

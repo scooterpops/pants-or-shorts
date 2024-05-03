@@ -22,17 +22,30 @@ export default function AddLocationPage() {
     }
   };
 
+  async function handleSaveLocation() {
+    try {
+      await userService.saveLocation(searchTerm);
+      console.log('Location saved successfully'); 
+    } catch (error) {
+      console.error('Error saving location:', error)
+    }
+  };
+
   return (
     <>
       <h1>Add Location</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ marginBottom: '10px' }}>
         <input
           type="text"
           placeholder="Search location"
           value={searchTerm}
           onChange={handleChange}
+          style={{ marginBottom: '5px'}}
         />
-        <button type="submit">Search</button>
+        <button type="button" onClick={handleSaveLocation} style={{ marginLeft: '5px'}}>Save Location</button>
+        </div>
+        <button type="submit" style={{ margin: '0 auto', width: '50%', padding: '10px', boxSizing: 'border-box' }}>Search</button>
       </form>
       {weatherData && (
         <div>
@@ -47,7 +60,7 @@ export default function AddLocationPage() {
           <p>Cloud Cover: {weatherData.current.cloud}%</p>
         </div>
       )}
-      {/* <p>Search Term: {searchTerm}</p> */}
+
     </>
   );
 }

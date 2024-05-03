@@ -12,3 +12,5 @@ export async function logIn(credentials) {
 export function checkToken() {
   return sendRequest(`${BASE_URL}/ckeck-token`)
 }
+
+
