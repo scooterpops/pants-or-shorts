@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import * as userService from '../../utilities/users-service';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 export default function AddLocationPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [weatherData, getWeatherData] = useState(null);
+
 
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
@@ -13,16 +14,12 @@ export default function AddLocationPage() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const response = await axios.get(`/api/weather?searchTerm=${searchTerm}`);
+      const response = await axios.get(`http://localhost:3001/api/weather`);
+      console.log(response)
       getWeatherData(response.data);
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
-  };
-
-  async function handleClick() {
-    const expDate = await userService.checkToken();
-    console.log(expDate);
   };
 
   return (
@@ -40,8 +37,8 @@ export default function AddLocationPage() {
       {weatherData && (
         <div>
           <h2>Weather Data</h2>
-          <p>Temperature: {weatherData.current.temp_f}°F</p>
-          <p>Humidity: {weatherData.current.humidity}</p>
+          <p>Temperature: {weatherData.current.temp_f}F</p>
+          <p>Condition: {weatherData.current.condition.text}</p>
         </div>
       )}
       <p>Search Term: {searchTerm}</p>
