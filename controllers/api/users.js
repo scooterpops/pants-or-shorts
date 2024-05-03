@@ -3,7 +3,6 @@ const User = require('../../models/user');
 require('dotenv').config()
 const bcrypt = require('bcrypt'); 
 
-
 module.exports = {
   create,
   login,
@@ -38,7 +37,6 @@ function checkToken(req, res) {
   console.log('req.user', req.user);
   res.json(req.exp);
 }
-
 
 function createJWT(user) {
   return jwt.sign(

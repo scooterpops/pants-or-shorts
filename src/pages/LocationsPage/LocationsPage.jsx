@@ -5,7 +5,6 @@ import axios from 'axios';
 export default function LocationsPage({ onSelectLocation }) {
   const [locations, setLocations] = useState([]);
   
-
   useEffect(() => {
     fetchLocations();
   }, []);
@@ -18,7 +17,6 @@ export default function LocationsPage({ onSelectLocation }) {
       console.error('Error fetching locations:', error);
     }
   };
-
 
   return (
     <div>

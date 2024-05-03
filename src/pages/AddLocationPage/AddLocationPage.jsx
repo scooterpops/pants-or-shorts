@@ -20,7 +20,6 @@ export default function AddLocationPage() {
     setSearchTerm({ ...searchTerm, [evt.target ? evt.target.name : 'name']: newValue });
   }
   
-
   async function handleSubmit(evt) {                
     evt.preventDefault();
     try {
@@ -70,9 +69,7 @@ export default function AddLocationPage() {
           <p>UV Index: {weatherData.current.uv}</p>
           <p>Cloud Cover: {weatherData.current.cloud}%</p>
         </div>
-        
       )}
-
     </>
   );
 }
