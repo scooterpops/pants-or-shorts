@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import LocationsPage from '../LocationsPage/LocationsPage'
-import * as userService from '../../utilities/users-service';
-import * as locationApi from '../../utilities/locations-api';
 import axios from 'axios';
 
 export default function AddLocationPage() {
@@ -14,13 +11,15 @@ export default function AddLocationPage() {
     const params = new URLSearchParams(location.search);
     const searchTermFromQuery = params.get('searchTerm');
     if (searchTermFromQuery) {
-      setSearchTerm(searchTermFromQuery);
-    }
+      setSearchTerm({ name: searchTermFromQuery });
+    } 
   }, [location]);
 
-  function handleChange(evt) {
-    setSearchTerm({[evt.target.name]: evt.target.value});
-  };
+  function handleChange(evt, value) {
+    const newValue = evt.target ? evt.target.value : value;
+    setSearchTerm({ ...searchTerm, [evt.target ? evt.target.name : 'name']: newValue });
+  }
+  
 
   async function handleSubmit(evt) {                
     evt.preventDefault();
@@ -52,7 +51,7 @@ export default function AddLocationPage() {
           name="name"
           placeholder="Search location"
           value={searchTerm.name}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e)}
           style={{ marginBottom: '5px'}}
         />
         <button type="button" onClick={handleSaveLocation} style={{ marginLeft: '5px'}}>Save Location</button>
