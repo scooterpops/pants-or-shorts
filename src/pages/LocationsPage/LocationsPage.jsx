@@ -8,3 +8,4 @@ export default function LocationsPage() {
     <h1>Locations</h1>
     );
 }
+

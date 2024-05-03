@@ -5,13 +5,17 @@ module.exports = {
   };
 
   async function create(req, res) {
-    const Location = await Location.create(req.body);
+    // const Location = await Location.create(searchTerm);
     try {
-        await location.save()
-    } catch (err) {
+        const location = await Location.create(req.body.searchTerm);
+        console.log(req.body)
+        // await location.save()
+        res.json(location)
+    }   catch (err) {
         res.status(400).json(err);
     }
   }
+  
   
 
 //   async function create(req, res) {

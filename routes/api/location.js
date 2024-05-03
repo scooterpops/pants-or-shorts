@@ -13,6 +13,6 @@ const locationCtrl = require('../../controllers/api/location');
 //   }
 // });
 
-router.post('/locations', locationCtrl.create);
+router.post('/', locationCtrl.create);
 
 module.exports = router;

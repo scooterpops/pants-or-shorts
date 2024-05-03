@@ -4,17 +4,17 @@ import * as locationApi from '../../utilities/locations-api';
 import axios from 'axios';
 
 export default function AddLocationPage() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState({name: ''});
   const [weatherData, getWeatherData] = useState(null);
 
   function handleChange(evt) {
-    setSearchTerm(evt.target.value);
+    setSearchTerm({[evt.target.name]: evt.target.value});
   };
 
   async function handleSubmit(evt) {                
     evt.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:3001/api/weather?searchTerm=${searchTerm}`);
+      const response = await axios.get(`http://localhost:3001/api/weather?searchTerm=${searchTerm.name}`);
       console.log(response)
       getWeatherData(response.data);
     } catch (error) {
@@ -38,8 +38,9 @@ export default function AddLocationPage() {
         <div style={{ marginBottom: '10px' }}>
         <input
           type="text"
+          name="name"
           placeholder="Search location"
-          value={searchTerm}
+          value={searchTerm.name}
           onChange={handleChange}
           style={{ marginBottom: '5px'}}
         />
