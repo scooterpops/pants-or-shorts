@@ -45,29 +45,32 @@ export default function AddLocationPage() {
 
   return (
     <>
-      <h1>Add Location</h1>
+    <br />
+    <br />
+      {/* <h1>Add Location</h1> */}
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{ marginBottom: '10px' }}>
         <input
           type="text"
           name="name"
-          placeholder="Search location"
+          placeholder="Enter location"
           value={searchTerm.name}
           onChange={(e) => handleChange(e)}
           style={{ marginBottom: '5px'}}
         />
         <button type="button" onClick={handleSaveLocation} style={{ marginLeft: '5px'}}>Save Location</button>
         </div>
-        <button type="submit" style={{ margin: '0 auto', width: '50%', padding: '10px', boxSizing: 'border-box' }}>Search</button>
+        <button type="submit" style={{ fontWeight: 'bold', margin: '0 auto', width: '50%', padding: '10px', boxSizing: 'border-box' }}>Search</button>
       </form>
       {weatherData && (
         <div>
           <h2>Weather Data</h2>
+          <p style={{ border: '2px solid black', padding: '5px', margin: '0 auto', width: '50%' }}>{weatherData.location.name}, {weatherData.location.region}</p>
           <p>Temperature: {weatherData.current.temp_f} F</p>
           <p>Condition: {weatherData.current.condition.text}</p>
           <img src={`${weatherData.current.condition.icon}`} alt="Weather Icon" />
           <p>Wind: {weatherData.current.wind_mph} mph {weatherData.current.wind_dir}</p>
-          <p>Humidity: {weatherData.current.humidity}</p>
+          <p>Humidity: {weatherData.current.humidity}%</p>
           <p>Precipitation: {weatherData.current.precip_in} in</p>
           <p>UV Index: {weatherData.current.uv}</p>
           <p>Cloud Cover: {weatherData.current.cloud}%</p>
