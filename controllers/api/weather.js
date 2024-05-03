@@ -4,7 +4,7 @@ require('dotenv').config()
 
 
 module.exports = {  
-    getWeatherData,
+    getWeatherData
 };
 
 async function getWeatherData(req, res) {

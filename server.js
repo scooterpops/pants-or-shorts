@@ -27,6 +27,7 @@ const port = process.env.PORT || 3001;
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/weather', require('./routes/api/weather'));
+app.use('/api/location', require('./routes/api/location'))
 
 
 // The following "catch all" route (note the *) is necessary

@@ -7,7 +7,6 @@ export default function AddLocationPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [weatherData, getWeatherData] = useState(null);
 
-
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
   };
@@ -25,10 +24,10 @@ export default function AddLocationPage() {
 
   async function handleSaveLocation() {
     try {
-      await locationApi.create(searchTerm);
-      console.log('Location saved successfully'); 
+      await axios.post('http://localhost:3001/api/location', { searchTerm });
+      console.log('Location saved successfully');
     } catch (error) {
-      console.error('Error saving location:', error)
+      console.error('Error saving location:', error);
     }
   };
 
