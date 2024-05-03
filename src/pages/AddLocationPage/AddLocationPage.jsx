@@ -11,10 +11,10 @@ export default function AddLocationPage() {
     setSearchTerm(evt.target.value);
   };
 
-  async function handleSubmit(evt) {
+  async function handleSubmit(evt) {                
     evt.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:3001/api/weather`);
+      const response = await axios.get(`http://localhost:3001/api/weather?searchTerm=${searchTerm}`);
       console.log(response)
       getWeatherData(response.data);
     } catch (error) {

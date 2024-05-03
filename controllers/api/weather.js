@@ -9,7 +9,8 @@ module.exports = {
 
 async function getWeatherData(req, res) {
     try {
-        const response = await axios.get(`https://api.weatherapi.com/v1/current.json?q=Oakland&key=${process.env.WEATHER_API_KEY}`, {
+        const searchTerm = req.query.searchTerm;
+        const response = await axios.get(`https://api.weatherapi.com/v1/current.json?q=${searchTerm}&key=${process.env.WEATHER_API_KEY}`, {
         });
 
         console.log(response.data)
