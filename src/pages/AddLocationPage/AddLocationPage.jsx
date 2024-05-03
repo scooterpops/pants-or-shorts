@@ -37,11 +37,16 @@ export default function AddLocationPage() {
       {weatherData && (
         <div>
           <h2>Weather Data</h2>
-          <p>Temperature: {weatherData.current.temp_f}F</p>
+          <p>Temperature: {weatherData.current.temp_f} F</p>
           <p>Condition: {weatherData.current.condition.text}</p>
+          <img src={`${weatherData.current.condition.icon}`} alt="Weather Icon" />
+          <p>Wind: {weatherData.current.wind_mph} mph {weatherData.current.wind_dir}</p>
+          <p>Humidity: {weatherData.current.humidity}</p>
+          <p>Precipitation: {weatherData.current.precip_in} in</p>
+          <p>UV Index: {weatherData.current.uv}</p>
         </div>
       )}
-      <p>Search Term: {searchTerm}</p>
+      {/* <p>Search Term: {searchTerm}</p> */}
     </>
   );
 }
