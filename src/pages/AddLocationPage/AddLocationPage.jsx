@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function AddLocationPage() {
   const [searchTerm, setSearchTerm] = useState({name: ''});
   const [weatherData, getWeatherData] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+ 
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -35,6 +37,7 @@ export default function AddLocationPage() {
     try {
       await axios.post('http://localhost:3001/api/location', { searchTerm });
       console.log('Location saved successfully');
+      navigate('/locations');
     } catch (error) {
       console.error('Error saving location:', error);
     }
