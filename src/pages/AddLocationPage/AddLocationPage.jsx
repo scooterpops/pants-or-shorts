@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import LocationsPage from '../LocationsPage/LocationsPage'
 import * as userService from '../../utilities/users-service';
 import * as locationApi from '../../utilities/locations-api';
 import axios from 'axios';
@@ -6,6 +8,15 @@ import axios from 'axios';
 export default function AddLocationPage() {
   const [searchTerm, setSearchTerm] = useState({name: ''});
   const [weatherData, getWeatherData] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const searchTermFromQuery = params.get('searchTerm');
+    if (searchTermFromQuery) {
+      setSearchTerm(searchTermFromQuery);
+    }
+  }, [location]);
 
   function handleChange(evt) {
     setSearchTerm({[evt.target.name]: evt.target.value});
@@ -60,6 +71,7 @@ export default function AddLocationPage() {
           <p>UV Index: {weatherData.current.uv}</p>
           <p>Cloud Cover: {weatherData.current.cloud}%</p>
         </div>
+        
       )}
 
     </>

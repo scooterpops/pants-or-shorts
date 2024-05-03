@@ -1,11 +1,11 @@
 const Location = require('../../models/location');
 
 module.exports = {
-    create
+    create,
+    index
   };
 
   async function create(req, res) {
-    // const Location = await Location.create(searchTerm);
     try {
         const location = await Location.create(req.body.searchTerm);
         console.log(req.body)
@@ -16,6 +16,14 @@ module.exports = {
     }
   }
   
+  async function index(req, res) {
+    try {
+        const locations = await Location.find({});
+        res.json(locations); // Send locations data as JSON response
+    }   catch (err) {
+        res.status(500).json({ error: 'Error fetching locations' });
+    }
+  }
   
 
 //   async function create(req, res) {
