@@ -64,8 +64,8 @@ export default function AddLocationPage() {
       </form>
       {weatherData && (
         <div>
-          <h2>Weather Data</h2>
-          <p style={{ border: '2px solid black', padding: '5px', margin: '0 auto', width: '50%' }}>{weatherData.location.name}, {weatherData.location.region}</p>
+          {/* <h2>Weather Data</h2> */}
+          <h2><p style={{ padding: '5px', margin: '0 auto', width: '50%' }}>{weatherData.location.name}, {weatherData.location.region}</p></h2>
           <p>Temperature: {weatherData.current.temp_f} F</p>
           <p>Condition: {weatherData.current.condition.text}</p>
           <img src={`${weatherData.current.condition.icon}`} alt="Weather Icon" />
