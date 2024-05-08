@@ -23,7 +23,6 @@ export default function AddLocationPage()  {
     setSearchTerm({ ...searchTerm, [evt.target ? evt.target.name : 'name']: newValue });
   }
   
-  
   async function handleSubmit(evt) {                
     evt.preventDefault();
     try {
@@ -91,8 +90,9 @@ export default function AddLocationPage()  {
           <p>Cloud Cover: {weatherData.current.cloud}%</p></p>
         <div className="weather-info">
           <p>{weatherData.current.temp_f >= 65 ? "Wear Shorts" : "Wear Pants"}</p>
-          <p>{weatherData.current.uv >= 3 ? "Wear Sunglasses" : null}</p>
-          <p>{weatherData.current.temp_f >= 60 && weatherData.current.humidity >= 60 ? "Wear Short Sleeves" : "Wear Long Sleeves"}</p>
+          <p>
+          {weatherData.current.uv >= 3 ? (
+          <span>Wear Sunglasses <i className="fas fa-sunglasses"></i></span> ) : null}</p>          <p>{weatherData.current.temp_f >= 60 && weatherData.current.humidity >= 60 ? "Wear Short Sleeves" : "Wear Long Sleeves"}</p>
           <p>{weatherData.current.precip_in >= 0.05 || weatherData.current.condition.text.includes("Heavy rain") ? "Bring Umbrella" : null}</p>
           <p>{weatherData.current.temp_f < 60 || weatherData.current.wind_mph > 10 ? "Bring Jacket" : null}</p>
           <p>{weatherData.current.temp_f >= 75 ? "Wear Sandals" : "Wear Shoes"}</p>

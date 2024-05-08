@@ -4,8 +4,8 @@
 </div>
 
 ## DESCRIPTION
-Find real-time weather info and be told what to wear and what to bring!
 
+Find real-time weather info and be told what to wear and what to bring!
 
 # SCREENSHOTS
 
@@ -21,7 +21,7 @@ Find real-time weather info and be told what to wear and what to bring!
 - Express.js
 - JavaScript
 - CSS
-
+- WeatherAPI.com
 
 # NEXT STEPS
 
