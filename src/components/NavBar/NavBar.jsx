@@ -15,7 +15,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <img src={Logo} alt="Logo" height="50" style={{ marginRight: '10px' }} />
+      {/* <img src={Logo} alt="Logo" height="50" style={{ marginRight: '10px' }} /> */}
 
       <Link to="/locations">Locations</Link>
       &nbsp; | &nbsp;
