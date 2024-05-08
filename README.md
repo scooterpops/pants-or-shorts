@@ -26,5 +26,6 @@ Find real-time weather info and be told what to wear and what to bring!
 # NEXT STEPS
 
 - Add Future Forecasts
-- Improved Styling
+- Improved Styling, Updated Logo
 - Editable Locations
+- Add Light / Dark Mode Toggle
