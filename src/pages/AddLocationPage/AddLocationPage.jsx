@@ -72,7 +72,15 @@ export default function AddLocationPage()  {
       {weatherData && (
         <div>
           {/* <h2>Weather Data</h2> */}
-          <h2><p style={{ padding: '5px', margin: '0 auto', width: '50%' }}>{weatherData.location.name}, {weatherData.location.region}</p></h2>
+          <p style={{ 
+              padding: '5px', 
+              margin: '0 auto', 
+              width: '50%', 
+              borderLeft: '2px solid white',
+              borderRight: '2px solid white',
+              fontWeight: 'bold'
+            }}>
+        <h2><p style={{ padding: '5px', margin: '0 auto', width: '50%' }}>{weatherData.location.name}, {weatherData.location.region}</p></h2>
           <p>Temperature: {weatherData.current.temp_f} F</p>
           <p>Condition: {weatherData.current.condition.text}</p>
           <img src={`${weatherData.current.condition.icon}`} alt="Weather Icon" />
@@ -80,10 +88,15 @@ export default function AddLocationPage()  {
           <p>Humidity: {weatherData.current.humidity}%</p>
           <p>Precipitation: {weatherData.current.precip_in} in</p>
           <p>UV Index: {weatherData.current.uv}</p>
-          <p>Cloud Cover: {weatherData.current.cloud}%</p>
-          <p>
-            {weatherData.current.temp_f >= 65 ? "Wear Shorts" : "Wear Pants"}
-          </p>
+          <p>Cloud Cover: {weatherData.current.cloud}%</p></p>
+        <div className="weather-info">
+          <p>{weatherData.current.temp_f >= 65 ? "Wear Shorts" : "Wear Pants"}</p>
+          <p>{weatherData.current.uv >= 3 ? "Wear Sunglasses" : null}</p>
+          <p>{weatherData.current.temp_f >= 60 && weatherData.current.humidity >= 60 ? "Wear Short Sleeves" : "Wear Long Sleeves"}</p>
+          <p>{weatherData.current.precip_in >= 0.05 || weatherData.current.condition.text.includes("Heavy rain") ? "Bring Umbrella" : null}</p>
+          <p>{weatherData.current.temp_f < 60 || weatherData.current.wind_mph > 10 ? "Bring Jacket" : null}</p>
+          <p>{weatherData.current.temp_f >= 75 ? "Wear Sandals" : "Wear Shoes"}</p>
+        </div>
         </div>
       )}
     </>

@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.weather-info {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 0 auto 10px;
+  width: 50%;
+}
+
