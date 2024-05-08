@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import * as userService from '../../utilities/users-service'
+import * as userService from '../../utilities/users-service';
+import Logo from '../../assets/logo.png';
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -14,6 +15,8 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
+      <img src={Logo} alt="Logo" height="50" style={{ marginRight: '10px' }} />
+
       <Link to="/locations">Locations</Link>
       &nbsp; | &nbsp;
       <Link to="/locations/add">Add Location</Link>

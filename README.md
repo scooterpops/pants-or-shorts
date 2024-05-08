@@ -1,3 +1,30 @@
-# MERN-Stack Infrastructure
+# Pants Or Shorts
+<div id="header" align="center">
+    <img src="https://i.imgur.com/royphBF.jpeg" width="200" height="100">
+</div>
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+## DESCRIPTION
+Find real-time weather info and be told what to wear and what to bring!
+
+
+# SCREENSHOTS
+
+<img src="https://i.imgur.com/d7f5nt2.png">
+
+
+# TECHNOLOGIES USED
+
+- React
+- Node.js
+- MongoDB
+- Mongoose
+- Express.js
+- JavaScript
+- CSS
+
+
+# NEXT STEPS
+
+- Add Future Forecasts
+- Improved Styling
+- Editable Locations
