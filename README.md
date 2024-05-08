@@ -10,7 +10,7 @@ Find real-time weather info and be told what to wear and what to bring!
 # SCREENSHOTS
 
 <img src="https://i.imgur.com/1yBWXkD.png">
-
+<img src="https://i.imgur.com/TdPRH6m.png">
 
 # TECHNOLOGIES USED
 
