@@ -1,6 +1,6 @@
 # Pants Or Shorts
 <div id="header" align="center">
-    <img src="https://i.imgur.com/GsHMS7M.png" width="200" height="100">
+    <img src="https://i.imgur.com/GsHMS7M.png">
 </div>
 
 ## DESCRIPTION
